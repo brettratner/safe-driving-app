@@ -94,11 +94,11 @@
             android:label="Mapview" >
         </activity>
         <activity
-            android:name=".acceleromter"
+            android:name=".accelerometer"
             android:label="accelerometer" >
-
-
-
+        </activity>
+        <activity android:name=".CallBlocker"
+                  android:label="CallBlocker">
         </activity>
 
     </application>

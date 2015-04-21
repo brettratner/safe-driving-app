@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.widget.TextView;
 
-public class acceleromter extends Activity implements SensorEventListener {
+public class accelerometer extends Activity implements SensorEventListener {
 
     private float lastX, lastY, lastZ;
 

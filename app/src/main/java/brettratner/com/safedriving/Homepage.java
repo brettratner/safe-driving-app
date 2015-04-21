@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class Homepage extends ActionBarActivity {
 
-    private Button button, button2, button3, button4;
+    private Button button, button2, button3, button4, button5;
     private TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class Homepage extends ActionBarActivity {
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
         text = (TextView) findViewById(R.id.text);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +51,14 @@ public class Homepage extends ActionBarActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent j = new Intent(getApplicationContext(), acceleromter.class);
+                Intent j = new Intent(getApplicationContext(), accelerometer.class);
+                startActivity(j);
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent j = new Intent(getApplicationContext(), CallBlocker.class);
                 startActivity(j);
             }
         });
