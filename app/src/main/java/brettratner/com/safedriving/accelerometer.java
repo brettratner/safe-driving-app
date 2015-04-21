@@ -1,7 +1,9 @@
 package brettratner.com.safedriving;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -16,6 +18,7 @@ public class accelerometer extends Activity implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
+    private boolean accIsRead = false;
 
     private float deltaXMax = 0;
     private float deltaYMax = 0;
@@ -82,31 +85,43 @@ public class accelerometer extends Activity implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        // clean current values
-        displayCleanValues();
+
         // display the current x,y,z accelerometer values
         displayCurrentValues();
         // display the max x,y,z accelerometer values
         displayMaxValues();
 
         // get the change of the x,y,z values of the accelerometer
-        deltaX = Math.abs(lastX - event.values[0]);
-        deltaY = Math.abs(lastY - event.values[1]);
-        deltaZ = Math.abs(lastZ - event.values[2]);
+        deltaX = Math.abs(lastX - event.values[0]/10);
+        deltaY = Math.abs(lastY - event.values[1]/10);
+        deltaZ = Math.abs(lastZ - event.values[2]/10);
 
     }
 
-    public void displayCleanValues() {
-        currentX.setText("0.0");
-        currentY.setText("0.0");
-        currentZ.setText("0.0");
-    }
+
 
     // display the current x,y,z accelerometer values
     public void displayCurrentValues() {
         currentX.setText(Float.toString(deltaX));
         currentY.setText(Float.toString(deltaY));
         currentZ.setText(Float.toString(deltaZ));
+
+        if(accIsRead == false && (deltaX > 1.3 || deltaY > 1.3 || deltaZ > 1.3)){
+            accIsRead = true;
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Driving Buddy");
+            alertDialog.setMessage("Are you a pasenger?");
+            alertDialog.setButton("YES", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    accIsRead = false;
+
+                }
+
+            });
+            alertDialog.show();
+
+        }
+
     }
 
     // display the max x,y,z accelerometer values

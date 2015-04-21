@@ -1,41 +1,49 @@
-package brettratner.com.safedriving;
-
-/**
- * Created by BRETT on 4/8/15.
- */
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-
-
-public class CallBlocker extends ActionBarActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_callblocker);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_callblocker, menu);
-        return true;
-    }
-
+//package brettratner.com.safedriving;
+//
+//import android.app.Activity;
+//import android.os.Bundle;
+//import android.view.View;
+//import android.widget.Button;
+//import android.widget.EditText;
+//
+///**
+// * Created by BRETT on 4/8/15.
+// */
+//public class CallBlocker extends Activity {
+//
+//    /** Called when the activity is first created. */
 //    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_callblocker);
+//        int mobileNum;
 //
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+//        ((Button)findViewById(R.id.block)).setOnClickListener(new View.OnClickListener() {
 //
-//        return super.onOptionsItemSelected(item);
+//            @Override
+//            public void onClick(View v) {
+//
+//                String mobileNumer = ((EditText) findViewById(R.id.mobileNum)).getText().toString();
+//
+//                //How to block entered mobileNumber
+//
+//            }
+//        });
+//
+//        ((Button)findViewById(R.id.unblock)).setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                String mobileNumer = ((EditText)findViewById(R.id.mobileNum)).getText().toString();
+//
+//                //How to unblock entered mobileNumber
+//
+//            }
+//        });
+//
+//
+//
 //    }
-}
+//}
