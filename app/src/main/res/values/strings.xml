@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_acceleromter">acceleromter</string>
+    <string name="title_activity_call_blocker">callBlocker</string>
+    <string name="title_activity_phone_call_receiver">PhoneCallReceiver</string>
+    <string name="title_activity_phone_call_state_listener">PhoneCallStateListener</string>
 </resources>
