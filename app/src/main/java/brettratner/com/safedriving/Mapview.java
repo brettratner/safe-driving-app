@@ -80,14 +80,21 @@ public class Mapview extends FragmentActivity implements LocationListener{
 
 //  convert the location object to a LatLng object that can be used by the map API
         LatLng currentPosition = new LatLng(location.getLatitude(), location.getLongitude());
+        double latitude   = 40.2712;
+        double longitude  = -74.7829;
+
+
 
 // zoom to the current location
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentPosition,16));
 
 // add a marker to the map indicating our current position
+
         mMap.addMarker(new MarkerOptions()
                 .position(currentPosition)
-                .snippet("Lat:" + location.getLatitude() + "Lng:"+ location.getLongitude()));
+                .title("your location")
+                );
+
     }
     @Override
     public void onLocationChanged(Location location) {

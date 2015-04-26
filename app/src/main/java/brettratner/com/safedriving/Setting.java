@@ -3,9 +3,12 @@ package brettratner.com.safedriving;
 /**
  * Created by BRETT on 4/8/15.
  */
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Switch;
 
 
 public class Setting extends ActionBarActivity {
@@ -24,6 +27,34 @@ public class Setting extends ActionBarActivity {
         return true;
     }
 
+
+    public void onSwitchClicked(View view){
+        //is the toggle on
+        boolean gpson = ((Switch) findViewById(R.id.gpsbutton)).isChecked();
+        boolean bluetooth = ((Switch) findViewById(R.id.bluetoothbutton)).isChecked();
+
+
+        if (gpson){
+
+
+
+
+        } else{
+
+        }
+
+        if (bluetooth){
+
+
+
+
+        } else{
+
+        }
+
+
+
+    }
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        // Handle action bar item clicks here. The action bar will

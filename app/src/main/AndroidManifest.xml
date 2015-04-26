@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="brettratner.com.safedriving" >
 
-    <uses-sdk android:minSdkVersion="5" />
 
     <supports-screens
         android:anyDensity="true"
@@ -11,27 +10,32 @@
         android:resizeable="true"
         android:smallScreens="true" />
 
-    <receiver android:name=".PhoneCallReceiver" >
-        <intent-filter android:priority="100" >
+    <receiver  android:name=".PhoneCallReceiver">
+        <intent-filter  android:priority="100" >
             <action android:name="android.intent.action.PHONE_STATE" />
         </intent-filter>
     </receiver>
 
-    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-feature android:name="android.hardware.telephony" />
 
     <!-- Having the app icon open from minimap instead of drawable -->
     <!-- android:icon="@mipmap/ic_launcher" -->
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <uses-feature android:name="android.hardware.telephony" />
-
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_MMS" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.battery_stats"/>
+
+
 
     <uses-feature android:name="android.hardware.sensor.accelerometer" />
 
@@ -108,13 +112,13 @@
             android:name=".accelerometer"
             android:label="accelerometer" >
         </activity>
-         <!--<activity android:name=".CallBlocker"-->
-                   <!--android:label="CallBlocker">-->
-         <!--</activity>-->
+         <activity android:name=".CallBlocker"
+                   android:label="CallBlocker">
+         </activity>
 
         <!--<activity-->
             <!--android:name=".PhoneCallReceiver"-->
-            <!--android:label="@string/title_activity_phone_call_receiver" >-->
+            <!--android:label="PhoneCallReceiver" >-->
         <!--</activity>-->
         <!--<activity-->
             <!--android:name=".PhoneCallStateListener"-->

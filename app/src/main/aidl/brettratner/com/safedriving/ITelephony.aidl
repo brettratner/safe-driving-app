@@ -1,12 +1,14 @@
-// ITelephony.aidl
 package brettratner.com.safedriving;
 
+  interface ITelephony {
 
-interface ITelephony {
+   
+    boolean endCall();
 
-  boolean endCall();
+  
+    void answerRingingCall();
 
-  void answerRingingCall();
+   
+    void silenceRinger();
 
-  void silenceRinger();
-}
+  }

@@ -12,6 +12,11 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.widget.TextView;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class accelerometer extends Activity implements SensorEventListener {
 
     private float lastX, lastY, lastZ;
@@ -19,6 +24,8 @@ public class accelerometer extends Activity implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor accelerometer;
     private boolean accIsRead = false;
+    private int timer= 10;
+
 
     private float deltaXMax = 0;
     private float deltaYMax = 0;
@@ -106,19 +113,49 @@ public class accelerometer extends Activity implements SensorEventListener {
         currentY.setText(Float.toString(deltaY));
         currentZ.setText(Float.toString(deltaZ));
 
-        if(accIsRead == false && (deltaX > 1.3 || deltaY > 1.3 || deltaZ > 1.3)){
+
+
+        if(accIsRead == false && (deltaX > 1.5 || deltaY > 1.5 || deltaZ > 1.5)) {
+
+
             accIsRead = true;
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("Driving Buddy");
-            alertDialog.setMessage("Are you a pasenger?");
-            alertDialog.setButton("YES", new DialogInterface.OnClickListener() {
+
+            final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+            final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+//            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+
+            alertDialog.setTitle("Driving Buddy" /*\t\t\t\t\t\t\t\t\t\t\t\t\t + timer*/);
+//            if (timer <= 10){
+//                System.out.println("Timer: " + timer);
+//            timer--;
+//        }
+
+
+            alertDialog.setMessage("Are you a passenger?");
+            alertDialog.setButton("YES", new DialogInterface.OnClickListener                                                               () {
                 public void onClick(DialogInterface dialog, int which) {
                     accIsRead = false;
 
                 }
 
+
             });
+            Runnable hideDialog = new Runnable() {
+                public void run() {
+                    alertDialog.cancel();
+                    accIsRead = false;
+
+                }
+            };
             alertDialog.show();
+
+
+            executor.schedule(hideDialog, timer, SECONDS);
+
+
 
         }
 
