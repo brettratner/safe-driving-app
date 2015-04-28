@@ -4,14 +4,33 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/primary_material_light"
+
+
     tools:context="brettratner.com.safedriving.Setting">
 
+    <TextView
+        android:id="@+id/passengertext"
+        android:text="passenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <TextView
+        android:id="@+id/speedtext"
+        android:text="Start up Speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="30dp"
+        />
     <TextView
         android:id="@+id/gpsText"
         android:text="    GPS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="230dp"
         android:layout_marginRight="30dp"
         />
 
@@ -24,14 +43,55 @@
         android:layout_marginTop="40dp"
 
         />
+    <TextView
+        android:id="@+id/privacyText"
+        android:text="Privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bluetoothText"
+        android:layout_marginTop="40dp"
 
+        />
+
+
+
+    <Switch
+        android:id="@+id/passengerbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/passengertext"
+        android:layout_marginTop="30dp"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:onClick="onSwitchClicked"
+        />
+    <Switch
+        android:id="@+id/privacybutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bluetoothbutton"
+        android:layout_toRightOf="@id/gpsText"
+        android:layout_marginTop="30dp"
+        android:textOff="OFF"
+        android:textOn="ON"
+        android:onClick="onSwitchClicked"
+        />
+    <NumberPicker
+        android:id="@+id/speedpicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passengerbutton"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/speedtext"
+
+        ></NumberPicker>
 
     <Switch
     android:id="@+id/gpsbutton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_toRightOf="@id/gpsText"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="230dp"
     android:textOff="OFF"
     android:textOn="ON"
     android:onClick="onSwitchClicked"
@@ -48,5 +108,21 @@
         android:textOn="ON"
         android:onClick="onSwitchClicked"
         />
+        <!--<CheckBox-->
+            <!--android:id="@+id/is_human"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/savebutton"/>-->
+    <Button
+        android:id="@+id/savebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/privacybutton"
+        android:layout_marginTop="20dp"
+        android:text="Save"
+        android:layout_centerHorizontal="true"
+
+        />
+
 
 </RelativeLayout>
