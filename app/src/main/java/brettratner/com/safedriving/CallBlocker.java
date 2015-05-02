@@ -23,6 +23,10 @@ public class CallBlocker extends Activity {
         blocked = (Button) findViewById(R.id.block);
         unblocked=(Button) findViewById(R.id.unblock);
 
+            /*
+            This button will block all calls and text messages form everyone and show
+            a toast that will notify the user saying that the all are blocked
+             */
         blocked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +39,10 @@ public class CallBlocker extends Activity {
             }
         });
 
+        /*
+        This button will unblock all calls and text messages from other people and show
+        a toast that will notify the user saying that calls are unblocked.
+         */
         unblocked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -42,6 +42,11 @@ public class accelerometer extends Activity implements SensorEventListener {
     public Vibrator v;
 
     @Override
+ /* This checks to see if there is an accelerometer to read the information from and
+    if there is then it will start reading values from the accelerometer. And if there is
+    no accelerometer than this will just print out that there is no accelerometer available.
+
+  */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acceleromter);
@@ -54,14 +59,19 @@ public class accelerometer extends Activity implements SensorEventListener {
             sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
             vibrateThreshold = accelerometer.getMaximumRange() / 2;
         } else {
-            // there is no accelerometer!
-        }
+            System.out.println("There is no Accelerometer");
+          }
 
         //initialize vibration
         v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
 
     }
-
+/*
+    This displays the current x,y,and z values that is being read from the accelerometer
+    which are stored into the variables called currentX, currentY, and currentZ. This
+    also displays the maximum value that was reached using the accelerometer which are
+    stored in the variables called maxX, maxY, maxZ.
+ */
     public void initializeViews() {
         currentX = (TextView) findViewById(R.id.currentX);
         currentY = (TextView) findViewById(R.id.currentY);
@@ -93,12 +103,20 @@ public class accelerometer extends Activity implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
 
 
-        // display the current x,y,z accelerometer values
+        /*
+         display the current x,y,z accelerometer values
+          */
         displayCurrentValues();
-        // display the max x,y,z accelerometer values
+        /*
+         display the max x,y,z accelerometer values
+          */
         displayMaxValues();
 
-        // get the change of the x,y,z values of the accelerometer
+        /*
+        get the change of the x,y,z values of the accelerometer
+        dividing all the values by ten nullifies the affect of
+        gravity on the accelerometer.
+         */
         deltaX = Math.abs(lastX - event.values[0]/10);
         deltaY = Math.abs(lastY - event.values[1]/10);
         deltaZ = Math.abs(lastZ - event.values[2]/10);
@@ -113,7 +131,15 @@ public class accelerometer extends Activity implements SensorEventListener {
         currentY.setText(Float.toString(deltaY));
         currentZ.setText(Float.toString(deltaZ));
 
-
+/*
+    accISRead is checking to see if the alert box is popped up so that
+    when the alert box is active it will stop reading in data from the
+    accelerometer. The deltaX, deltaY, and deltaZ are the values the the
+    change in acceleration must be at in order for the alert bod to appear.
+    There is a 10 second countdown that will automatically close the alert
+    box if the user does not click the yes button which will assume the user
+    is the driver.
+ */
 
         if(accIsRead == false && (deltaX > 1.5 || deltaY > 1.5 || deltaZ > 1.5)) {
 
@@ -161,7 +187,9 @@ public class accelerometer extends Activity implements SensorEventListener {
 
     }
 
-    // display the max x,y,z accelerometer values
+    /*
+    This displays the max x,y,z accelerometer values on the screen.
+     */
     public void displayMaxValues() {
         if (deltaX > deltaXMax) {
             deltaXMax = deltaX;

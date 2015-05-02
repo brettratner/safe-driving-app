@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 
 public class Homepage extends ActionBarActivity {
-
+/*
+All the button variables go to the different pages of the app.
+ */
     private Button button, button2, button3, button4, button5;
     private TextView text;
     @Override
@@ -25,6 +27,9 @@ public class Homepage extends ActionBarActivity {
         button5 = (Button) findViewById(R.id.button5);
         text = (TextView) findViewById(R.id.text);
 
+        /*
+        This goes to the favorites page
+         */
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +37,10 @@ public class Homepage extends ActionBarActivity {
                 startActivity(i);
             }
         });
+
+        /*
+        This goes to the settings page
+         */
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +50,9 @@ public class Homepage extends ActionBarActivity {
             }
         });
 
+        /*
+        This goes to the map page
+         */
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +60,10 @@ public class Homepage extends ActionBarActivity {
                 startActivity(j);
             }
         });
+
+        /*
+        This goes to the accelerometer page
+         */
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +71,10 @@ public class Homepage extends ActionBarActivity {
                 startActivity(j);
             }
         });
+
+        /*
+        This goes to the call blocking page
+         */
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
